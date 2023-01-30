@@ -50,6 +50,7 @@ const Input = styled.input`
     text-align: center;
     color: black;
     font-weight:bold;
+    transition: ease-out .3s;
   }
   &:focus {
     background: white;
@@ -58,6 +59,13 @@ const Input = styled.input`
     outline: none;
     &::placeholder {
       color: white;
+    }
+  }
+  &:hover{
+    box-shadow: ${BoxShadowA};
+    &::placeholder {
+      color: white;
+      transition: ease-out .3s;
     }
   }
 `;
