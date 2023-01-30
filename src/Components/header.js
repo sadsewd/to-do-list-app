@@ -6,7 +6,7 @@ const BoxShadowA =
   "0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);";
 
 const StyledHeader = styled.header`
-  background: rgb(255, 195, 112);
+    background-image: linear-gradient(to bottom ,rgb(252, 92, 3), rgb(254, 148, 2));
   display: flex;
   justify-content: center;
   padding 1.5vh;
@@ -19,19 +19,18 @@ const Ul = styled.ul`
   align-items: center;
   list-style-type: none;
   gap: 10vw;
-
   underline: none;
 `;
 
 const A = styled.a`
   text-decoration: none;
-  background: rgb(112, 172, 255);
-  box-shadow: ${BoxShadow}
+  background: rgb(3, 163, 252);
+  box-shadow: ${BoxShadow};
   padding: 0.8vw 8vw;
   border-radius: 6px;
   color: Black;
   font-weight: bold;
-  font-size: 2.3vh;
+  font-size: 1.5vw;
   &:hover {
     color: white;
     box-shadow: ${BoxShadowA};
@@ -39,16 +38,22 @@ const A = styled.a`
 `;
 
 const Input = styled.input`
-box-shadow: ${BoxShadow}
-  border-radius: 0.5rem;
-  border: solid #cdcdcd 3px;
-  height: 2.5vw;
+  box-shadow: ${BoxShadow}
+  border-radius: 6px;
+  border: none;
+  background: rgb(3, 163, 252);
+  padding: 0.8vw;
+  height: 3.3vw;
   width: 20vw;
-  font-size: 2.3vh;
+  font-size: 1.5vw;
   &::placeholder {
     text-align: center;
+    color: black;
+    font-weight:bold;
   }
   &:focus {
+    background: white;
+    border: solid #cdcdcd 3px;
     box-shadow: ${BoxShadowA};
     outline: none;
     &::placeholder {
