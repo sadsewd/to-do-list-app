@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+const TextBorder =
+  "-webkit-text-stroke-width: 0.5px; -webkit-text-stroke-color: black;";
 const BoxShadow =
   "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);";
 const BoxShadowA =
@@ -32,6 +34,7 @@ const A = styled.a`
   font-weight: bold;
   font-size: 1.5vw;
   &:hover {
+    ${TextBorder}
     color: rgb(254, 148, 2);
     box-shadow: ${BoxShadowA};
   }
@@ -64,6 +67,7 @@ const Input = styled.input`
   &:hover{
     box-shadow: ${BoxShadowA};
     &::placeholder {
+      ${TextBorder};
       color: rgb(254, 148, 2);
       transition: ease-out .3s;
     }
