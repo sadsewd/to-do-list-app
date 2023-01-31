@@ -6,14 +6,10 @@ export default function Header() {
     <S.StyledHeader>
       <S.Ul>
         <li>
-          <Link to="/">
-            <S.Button>Home</S.Button>
-          </Link>
+          <S.Button to="/">Home</S.Button>
         </li>
         <li>
-          <Link to="/create">
-            <S.Button>Create</S.Button>
-          </Link>
+          <S.Button to="/create">Create</S.Button>
         </li>
         <li>
           <form>

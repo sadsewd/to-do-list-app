@@ -1,6 +1,5 @@
-import styled from "styled-components";
 import { Link } from "react-router-dom";
-
+import styled from "styled-components";
 const TextBorder =
   "-webkit-text-stroke-width: 0.5px; -webkit-text-stroke-color: black;";
 const BoxShadow =
@@ -24,7 +23,7 @@ export const Ul = styled.ul`
   gap: 10vw;
 `;
 
-export const Button = styled.button`
+export const Button = styled(Link)`
   border: none;
   text-decoration: none;
   background: rgb(3, 163, 252);
@@ -39,6 +38,10 @@ export const Button = styled.button`
     ${TextBorder}
     color: rgb(254, 148, 2);
     box-shadow: ${BoxShadowA};
+  }
+  &:active{
+    transition: ease-out 0s;
+    background: rgb(115, 205, 255);
   }
   &.cancel {
     background: red;

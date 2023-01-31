@@ -5,7 +5,7 @@ var today = new Date();
 var dd = String(today.getDate()).padStart(2, "0");
 var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
 var yyyy = today.getFullYear();
-today = mm + "/" + dd + "/" + yyyy;
+today = dd + "/" + mm + "/" + yyyy;
 
 export default function Create() {
   return (
@@ -20,8 +20,12 @@ export default function Create() {
           <S.Label>Date created:</S.Label>
           <S.Input type="text" value={today} readOnly />
           <S.FormDiv>
-            <S.Button className="cancel">Cancel</S.Button>
-            <S.Button className="add">Add</S.Button>
+            <S.Button to="/" className="cancel">
+              Cancel
+            </S.Button>
+            <S.Button to="/" className="add">
+              Add
+            </S.Button>
           </S.FormDiv>
         </S.Form>
       </S.Div>
