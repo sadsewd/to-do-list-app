@@ -28,11 +28,11 @@ const A = styled.a`
   box-shadow: ${BoxShadow};
   padding: 0.8vw 8vw;
   border-radius: 6px;
-  color: Black;
+  color: white;
   font-weight: bold;
   font-size: 1.5vw;
   &:hover {
-    color: white;
+    color: rgb(254, 148, 2);
     box-shadow: ${BoxShadowA};
   }
 `;
@@ -48,7 +48,7 @@ const Input = styled.input`
   font-size: 1.5vw;
   &::placeholder {
     text-align: center;
-    color: black;
+    color: white;
     font-weight:bold;
     transition: ease-out .3s;
   }
@@ -64,7 +64,7 @@ const Input = styled.input`
   &:hover{
     box-shadow: ${BoxShadowA};
     &::placeholder {
-      color: white;
+      color: rgb(254, 148, 2);
       transition: ease-out .3s;
     }
   }
@@ -81,7 +81,10 @@ export default function Header() {
           <A href="/">Create</A>
         </li>
         <li>
-          <Input type="text" id="Search" placeholder="Search" />
+          <form>
+            <Input type="text" id="Search" placeholder="Search" />
+            <input type="submit" hidden />
+          </form>
         </li>
       </Ul>
       <script
