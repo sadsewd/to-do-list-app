@@ -1,100 +1,31 @@
-import styled from "styled-components";
-
-const TextBorder =
-  "-webkit-text-stroke-width: 0.5px; -webkit-text-stroke-color: black;";
-const BoxShadow =
-  "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);";
-const BoxShadowA =
-  "0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);";
-
-const StyledHeader = styled.header`
-    background-image: linear-gradient(to bottom ,rgb(252, 92, 3), rgb(254, 148, 2));
-  display: flex;
-  justify-content: center;
-  padding 1.5vh;
-  border-bottom: solid #ececec 4px
-`;
-
-const Ul = styled.ul`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  list-style-type: none;
-  gap: 10vw;
-  underline: none;
-`;
-
-const A = styled.a`
-  text-decoration: none;
-  background: rgb(3, 163, 252);
-  box-shadow: ${BoxShadow};
-  padding: 0.8vw 8vw;
-  border-radius: 6px;
-  color: white;
-  font-weight: bold;
-  font-size: 1.5vw;
-  &:hover {
-    ${TextBorder}
-    color: rgb(254, 148, 2);
-    box-shadow: ${BoxShadowA};
-  }
-`;
-
-const Input = styled.input`
-  box-shadow: ${BoxShadow}
-  border-radius: 6px;
-  border: none;
-  background: rgb(3, 163, 252);
-  padding: 0.8vw;
-  height: 3.3vw;
-  width: 20vw;
-  font-size: 1.5vw;
-  &::placeholder {
-    text-align: center;
-    color: white;
-    font-weight:bold;
-    transition: ease-out .3s;
-  }
-  &:focus {
-    background: white;
-    border: solid #cdcdcd 3px;
-    box-shadow: ${BoxShadowA};
-    outline: none;
-    &::placeholder {
-      color: white;
-    }
-  }
-  &:hover{
-    box-shadow: ${BoxShadowA};
-    &::placeholder {
-      ${TextBorder};
-      color: rgb(254, 148, 2);
-      transition: ease-out .3s;
-    }
-  }
-`;
+import * as S from "./style.ts";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <StyledHeader>
-      <Ul>
+    <S.StyledHeader>
+      <S.Ul>
         <li>
-          <A href="/">Home</A>
+          <Link to="/">
+            <S.Button>Home</S.Button>
+          </Link>
         </li>
         <li>
-          <A href="/">Create</A>
+          <Link to="/create">
+            <S.Button>Create</S.Button>
+          </Link>
         </li>
         <li>
           <form>
-            <Input type="text" id="Search" placeholder="Search" />
+            <S.StyledSearchBar type="text" id="Search" placeholder="Search" />
             <input type="submit" hidden />
           </form>
         </li>
-      </Ul>
+      </S.Ul>
       <script
         src="https://kit.fontawesome.com/ee790463db.js"
         crossOrigin="anonymous"
       ></script>
-    </StyledHeader>
+    </S.StyledHeader>
   );
 }
