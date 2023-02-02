@@ -52,12 +52,12 @@ export default function Create() {
             readOnly
           />
           <S.FormDiv>
-            <S.Button to="/" className="cancel">
+            <S.optionButton onClick={navigate("/")} className="cancel">
               Cancel
-            </S.Button>
-            <button className="add" type="submit">
+            </S.optionButton>
+            <S.optionButton className="add" type="submit">
               Add
-            </button>
+            </S.optionButton>
           </S.FormDiv>
         </S.Form>
       </S.Div>

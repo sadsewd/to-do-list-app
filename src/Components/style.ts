@@ -144,3 +144,26 @@ export const FormDiv = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
+export const optionButton = styled.button`
+  height: 5vh;
+  width: 12.5vw;
+  border-radius: 1rem;
+  border: none;
+  font-weight: bold;
+  font-size: 1.5vw;
+  color: white;
+  box-shadow: ${BoxShadow};
+  &:hover {
+    box-shadow: ${BoxShadowA};
+    cursor: pointer;
+    color: rgb(254, 148, 2);
+    ${TextBorder};
+  }
+  &.cancel {
+    background: red;
+  }
+  &.add {
+    background: green;
+  }
+`;

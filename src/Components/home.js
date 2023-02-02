@@ -1,3 +1,5 @@
+import * as S from "./style.ts";
+
 export default function Home() {
   let taskNameValue = [];
   let descriptionValue = [];
