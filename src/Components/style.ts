@@ -10,7 +10,7 @@ const BoxShadowA =
 export const StyledHeader = styled.header`
     background-image: linear-gradient(to bottom ,rgb(252, 92, 3), rgb(254, 148, 2));
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   padding 1.5vh;
   border-bottom: solid #ececec 4px
 `;
@@ -166,6 +166,26 @@ export const optionButton = styled.button`
   &.add {
     background: green;
   }
+  &.delete {
+    border-radius: 0;
+    background: red;
+    color: yellow;
+    box-shadow: none;
+    border-radius: 0 0 0 1rem;
+  }
+  &.edit {
+    border-radius: 0;
+    background: yellow;
+    color: red;
+    box-shadow: none;
+    border-radius: 0 0 1rem 0;
+  }
+  &.delete:hover {
+    box-shadow: none;
+  }
+  &.edit:hover {
+    box-shadow: none;
+  }
 `;
 
 export const Container = styled.div`
@@ -180,34 +200,66 @@ export const TaskName = styled.h1`
   font-size: 3vh;
   font-weight: bold;
   text-align: center;
+  margin-left: 1vw;
+  padding-bottom: 10rem;
+  inline-size: 22.5vw;
+  position: absolute;
+  top: 0;
 `;
 
 export const TaskContainer = styled.div`
-  margin: 2vh 2vw;
   background: rgb(255, 138, 92);
-  border-radius: 1rem;
+  border-radius: 1rem 1rem 0 0rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 2vh 2vw;
-  box-shadow: ${BoxShadow};
-  overflow: scroll;
+  margin: 4vh 2vw 0;
+  min-height: 50vh;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
+  overflow: auto;
   overflow-wrap: break-word;
   inline-size: 24.5vw;
+  position: relative;
   &::-webkit-scrollbar {
     display: none;
   }
 `;
 
 export const TaskDate = styled.p`
-  margin-left: 1vw;
-  width: 25vw;
+  width: 24.5vw;
+  bottom: 0;
   font-size: 2vh;
+  font-weight: bold;
 `;
 
 export const TaskDescription = styled.p`
   margin-left: 1vw;
-  font-size: 2vh;
+  font-size: auto;
   inline-size: 22.5vw;
   text-align: center;
+  margin-bottom: 3vw;
+  position: absolute;
+  top: 10vh;
+  overflow: auto;
+  bottom: 0vh;
 `;
+
+export const TaskOptions = styled.div`
+  display: flex;
+  width: 100%;
+  top: 0;
+  margin: 0 4vh 2vh;
+  width: 24.5vw;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 1rem;
+`;
+
+export const DateContainer = styled.div`
+  display: flex;
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+  text-align: center;
+`;
+
+export const TNameContainer = styled.div``;

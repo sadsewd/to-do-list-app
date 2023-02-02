@@ -12,11 +12,21 @@ export default function Home() {
     <S.Container>
       {taskObjArray.map((task) => {
         return (
-          <S.TaskContainer>
-            <S.TaskName>{task.taskName}</S.TaskName>
-            <S.TaskDescription>{task.description}</S.TaskDescription>
-            <S.TaskDate>Date created: {task.date}</S.TaskDate>
-          </S.TaskContainer>
+          <div>
+            <S.TaskContainer>
+              <S.TNameContainer>
+                <S.TaskName>{task.taskName}</S.TaskName>
+              </S.TNameContainer>
+              <S.TaskDescription>{task.description}</S.TaskDescription>
+              <S.DateContainer>
+                <S.TaskDate>Date of creation : {task.date}</S.TaskDate>
+              </S.DateContainer>
+            </S.TaskContainer>
+            <S.TaskOptions>
+              <S.optionButton className="delete">Delete</S.optionButton>
+              <S.optionButton className="edit">Edit</S.optionButton>
+            </S.TaskOptions>
+          </div>
         );
       })}
     </S.Container>

@@ -1,5 +1,4 @@
 import * as S from "./style.ts";
-import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -18,10 +17,6 @@ export default function Header() {
           </form>
         </li>
       </S.Ul>
-      <script
-        src="https://kit.fontawesome.com/ee790463db.js"
-        crossOrigin="anonymous"
-      ></script>
     </S.StyledHeader>
   );
 }
