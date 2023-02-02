@@ -32,6 +32,7 @@ export const Button = styled(Link)`
   border-radius: 6px;
   color: white;
   font-weight: bold;
+  text-align: center;
   font-size: 1.5vw;
   &:hover {
     cursor: pointer;
@@ -75,15 +76,15 @@ export const StyledSearchBar = styled.input`
     box-shadow: ${BoxShadowA};
     outline: none;
     &::placeholder {
-      color: white;
+      visibility: hidden;
     }
   }
   &:hover{
     box-shadow: ${BoxShadowA};
-    &::placeholder {
+    &::placeholder{
       ${TextBorder};
       color: rgb(254, 148, 2);
-      transition: ease-out .3s;
+      transition: ease-in .3s;
     }
   }
 `;
