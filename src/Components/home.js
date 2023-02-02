@@ -1,19 +1,24 @@
 import * as S from "./style.ts";
 
 export default function Home() {
-  let taskNameValue = [];
-  let descriptionValue = [];
-  let dateValue = [];
-  let htmlCode = "";
-
+  let taskObjArray = [];
   let taskObj;
+
   for (let i = 0; i < localStorage.length; i++) {
     taskObj = JSON.parse(localStorage.getItem(i + 1));
-    taskNameValue[i] = taskObj.taskName;
-    descriptionValue[i] = taskObj.description;
-    dateValue[i] = taskObj.date;
-    htmlCode += `<div><h1>${taskNameValue[i]}</h1></br><p>${descriptionValue[i]}</p></br><p>${dateValue[i]}</p></div>`;
+    taskObjArray[i] = taskObj;
   }
-
-  return <div dangerouslySetInnerHTML={{ __html: htmlCode }} />;
+  return (
+    <S.Container>
+      {taskObjArray.map((task) => {
+        return (
+          <S.TaskContainer>
+            <S.TaskName>{task.taskName}</S.TaskName>
+            <S.TaskDescription>{task.description}</S.TaskDescription>
+            <S.TaskDate>Date created: {task.date}</S.TaskDate>
+          </S.TaskContainer>
+        );
+      })}
+    </S.Container>
+  );
 }

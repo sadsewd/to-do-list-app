@@ -167,3 +167,47 @@ export const optionButton = styled.button`
     background: green;
   }
 `;
+
+export const Container = styled.div`
+  margin: 2vh 2vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
+export const TaskName = styled.h1`
+  color: black;
+  font-size: 3vh;
+  font-weight: bold;
+  text-align: center;
+`;
+
+export const TaskContainer = styled.div`
+  margin: 2vh 2vw;
+  background: rgb(255, 138, 92);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2vh 2vw;
+  box-shadow: ${BoxShadow};
+  overflow: scroll;
+  overflow-wrap: break-word;
+  inline-size: 24.5vw;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+export const TaskDate = styled.p`
+  margin-left: 1vw;
+  width: 25vw;
+  font-size: 2vh;
+`;
+
+export const TaskDescription = styled.p`
+  margin-left: 1vw;
+  font-size: 2vh;
+  inline-size: 22.5vw;
+  text-align: center;
+`;
