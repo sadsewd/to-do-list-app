@@ -233,7 +233,6 @@ export const TaskDate = styled.p`
 `;
 
 export const TaskDescription = styled.p`
-  margin-left: 1vw;
   font-size: auto;
   inline-size: 22.5vw;
   text-align: center;
@@ -247,8 +246,7 @@ export const TaskDescription = styled.p`
 export const TaskOptions = styled.div`
   display: flex;
   width: 100%;
-  top: 0;
-  margin: 0 4vh 2vh;
+  margin: 0 2vw 2vh;
   width: 24.5vw;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 1rem;

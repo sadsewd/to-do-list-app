@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as S from "./style.ts";
 
 export default function Home() {
   let taskObjArray = [];
   let taskObj;
+  const navigate = useNavigate();
 
   for (let i = 0; i < localStorage.length; i++) {
     taskObj = JSON.parse(localStorage.getItem(i + 1));
@@ -20,6 +22,17 @@ export default function Home() {
       return object.id !== itemId;
     });
     setTask(newArr);
+  }
+
+  function toEdit(id, taskName, description, date) {
+    navigate("/create", {
+      state: {
+        id: id,
+        taskName: taskName,
+        description: description,
+        date: date,
+      },
+    });
   }
 
   return (
@@ -45,7 +58,14 @@ export default function Home() {
               >
                 Delete
               </S.optionButton>
-              <S.optionButton className="edit">Edit</S.optionButton>
+              <S.optionButton
+                className="edit"
+                onClick={() => {
+                  toEdit(task.id, task.taskName, task.description, task.date);
+                }}
+              >
+                Edit
+              </S.optionButton>
             </S.TaskOptions>
           </div>
         );

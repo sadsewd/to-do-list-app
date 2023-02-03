@@ -1,4 +1,5 @@
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import * as S from "./style.ts";
 
 //function for getting current day for task date of creation
@@ -12,19 +13,54 @@ function getCurrentDate() {
 }
 
 export default function Create() {
+  const editValues = useLocation();
+  console.log(editValues.state);
+  let edit;
+  let editedName;
+  let editedDesc;
+
+  if (editValues.state !== null) {
+    edit = true;
+  }
   //each task is an object which contains the necessary data for the task
-  let task = {};
-  let name = {};
-  let description = {};
-  let navigate = useNavigate();
+  let taskTemp = {};
+  let nameTemp = {};
+  let descriptionTemp = {};
+  let navigation = useNavigate();
 
   const handleSubmit = (event) => {
-    event.preventDefault();
     let newTaskId = localStorage.length + 1;
-    task = { ...name, ...description, date: getCurrentDate(), id: newTaskId };
-    localStorage.setItem(JSON.stringify(newTaskId), JSON.stringify(task));
-    navigate("/");
+
+    if (!editedName && edit) {
+      nameTemp = { taskName: editValues.state.taskName };
+    }
+    if (!editedDesc && edit) {
+      descriptionTemp = { description: editValues.state.description };
+    }
+
+    taskTemp = {
+      ...nameTemp,
+      ...descriptionTemp,
+      date: editValues.state?.date || getCurrentDate(),
+      id: editValues.state?.id || newTaskId,
+    };
+    localStorage.setItem(
+      JSON.stringify(editValues.state?.id || newTaskId),
+      JSON.stringify(taskTemp)
+    );
+    edit = false;
+    navigation("/");
   };
+
+  function setName(value) {
+    nameTemp = { taskName: value };
+    editedName = true;
+  }
+
+  function setDescription(value) {
+    descriptionTemp = { description: value };
+    editedDesc = true;
+  }
 
   return (
     <div>
@@ -35,24 +71,31 @@ export default function Create() {
           <S.Input
             type="text"
             id="taskName"
+            defaultValue={editValues.state?.taskName || ""}
             //data gets stored when changes occur
-            onChange={(e) => (name = { taskName: e.target.value })}
+            onChange={(e) => setName(e.target.value)}
           />
           <S.Label>Description:</S.Label>
           <S.TextArea
             id="description"
+            defaultValue={editValues.state?.description || ""}
             //data gets stored when changes occur
-            onChange={(e) => (description = { description: e.target.value })}
+            onChange={(e) => setDescription(e.target.value)}
           />
           <S.Label>Date created:</S.Label>
           <S.Input
             type="date"
             id="dateCreated"
-            value={getCurrentDate()}
+            value={editValues.state?.date || getCurrentDate()}
             readOnly
           />
           <S.FormDiv>
-            <S.optionButton onClick={navigate("/")} className="cancel">
+            <S.optionButton
+              onClick={() => {
+                navigation("/");
+              }}
+              className="cancel"
+            >
               Cancel
             </S.optionButton>
             <S.optionButton className="add" type="submit">
