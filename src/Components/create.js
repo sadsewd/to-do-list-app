@@ -20,8 +20,8 @@ export default function Create() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    task = { ...name, ...description, date: getCurrentDate() };
     let newTaskId = localStorage.length + 1;
+    task = { ...name, ...description, date: getCurrentDate(), id: newTaskId };
     localStorage.setItem(JSON.stringify(newTaskId), JSON.stringify(task));
     navigate("/");
   };
