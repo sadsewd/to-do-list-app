@@ -172,8 +172,10 @@ export const optionButton = styled.button`
     color: yellow;
     box-shadow: none;
     border-radius: 0 0 0 1rem;
+    height: 5vh;
   }
   &.edit {
+    height: 5vh;
     border-radius: 0;
     background: yellow;
     color: red;
@@ -214,7 +216,7 @@ export const TaskContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   margin: 4vh 2vw 0;
-  min-height: 50vh;
+  min-height: 30vh;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
   overflow: auto;
   overflow-wrap: break-word;
@@ -233,7 +235,7 @@ export const TaskDate = styled.p`
 `;
 
 export const TaskDescription = styled.p`
-  font-size: auto;
+  font-size: 1.5vw;
   inline-size: 22.5vw;
   text-align: center;
   margin-bottom: 3vw;
@@ -258,6 +260,5 @@ export const DateContainer = styled.div`
   bottom: 0;
   position: absolute;
   text-align: center;
+  border-top: solid black 1px;
 `;
-
-export const TNameContainer = styled.div``;

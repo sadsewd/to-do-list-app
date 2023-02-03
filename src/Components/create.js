@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import * as S from "./style.ts";
 
@@ -14,7 +13,6 @@ function getCurrentDate() {
 
 export default function Create() {
   const editValues = useLocation();
-  console.log(editValues.state);
   let edit;
   let editedName;
   let editedDesc;

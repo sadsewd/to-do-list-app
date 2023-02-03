@@ -1,6 +1,16 @@
+import { useLocation, useNavigate } from "react-router-dom";
 import * as S from "./style.ts";
 
 export default function Header() {
+  let navigate = useNavigate();
+  let location = useLocation();
+
+  const search = (value, location) => {
+    if (location.pathname === "/") {
+      navigate("/", { state: value });
+    }
+  };
+
   return (
     <S.StyledHeader>
       <nav>
@@ -13,8 +23,12 @@ export default function Header() {
           </li>
           <li>
             <form>
-              <S.StyledSearchBar type="text" id="Search" placeholder="Search" />
-              <input type="submit" hidden />
+              <S.StyledSearchBar
+                type="text"
+                id="Search"
+                placeholder="Search"
+                onChange={(e) => search(e.target.value, location)}
+              />
             </form>
           </li>
         </S.Ul>
