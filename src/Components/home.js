@@ -12,13 +12,11 @@ export default function Home() {
     taskObj = JSON.parse(localStorage.getItem(i + 1));
     taskObjArray[i] = taskObj;
   }
-
   const [task, setTask] = useState(taskObjArray);
-
   const filtered = task.filter((task) => {
     return (
-      task.taskName.toLowerCase().match(location.state.toLowerCase()) ||
-      task.description.toLowerCase().match(location.state.toLowerCase()) ||
+      task.taskName === location.state ||
+      task.description === location.state ||
       task.date === location.state
     );
   });
