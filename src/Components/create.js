@@ -30,7 +30,7 @@ function Create() {
 
   // the router dom functions
   const navigation = useNavigate();
-  const { id } = useParams();
+  const { id } = useParams(); //<-- her ewe get the id which is passed to the route create/:id
 
   // on each component load we use the custom hook useGetAllTasks to get all tasks this fiers on every component load
   const { allTasks } = useGetAllTasks();
