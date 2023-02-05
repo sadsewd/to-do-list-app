@@ -1,15 +1,15 @@
-import { useLocation, useNavigate } from "react-router-dom";
-import * as S from "./style.ts";
+import { useLocation, useNavigate } from 'react-router-dom';
+import * as S from './style.ts';
 
-export default function Header() {
-  let navigate = useNavigate();
-  let location = useLocation();
+export default function Header({ searchInput, handleSearchInput }) {
+  // let navigate = useNavigate();
+  // let location = useLocation();
 
-  const search = (value, location) => {
-    if (location.pathname === "/") {
-      navigate("/", { state: value });
-    }
-  };
+  // const search = (value, location) => {
+  //   if (location.pathname === "/") {
+  //     navigate("/", { state: value });
+  //   }
+  // };
 
   return (
     <S.StyledHeader>
@@ -27,7 +27,8 @@ export default function Header() {
                 type="text"
                 id="Search"
                 placeholder="Search"
-                onChange={(e) => search(e.target.value, location)}
+                value={searchInput}
+                onChange={handleSearchInput}
               />
             </form>
           </li>
